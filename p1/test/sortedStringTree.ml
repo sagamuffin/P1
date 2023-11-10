@@ -19,5 +19,16 @@ module SoStree =
                           else if (String.compare str s) > 0 then (isIn s t2)
                           else failwith "INTERNAL ERROR: failed to compare string to tree"
         | leaf -> false
+
+    let rec string_of_tree (t: sostree): string = 
+      match t with
+        | (leaf, str, leaf) -> str
+        | (t1, str. t2) -> ((string_of_tree t1) @ str @ (string_of_tree t2))
+        | leaf -> failwith "ERROR: empty tree"
+
+    let print_tree (t: sostree) =
+      print (string_of_tree t)
+
+      
   end
     
